@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+
+<html lang="es">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>OSINT MATÍAS</title>
+<link href="style.css" rel="stylesheet"/>
+</head>
+<body>
+<div class="modal" id="passwordModal">
+<div class="modal-content">
+<h2>Acceso Restringido</h2>
+<p>Introduce la clave para ingresar:</p>
+<input id="pwd" placeholder="Contraseña" type="password"/>
+<button onclick="checkPassword()">Entrar</button>
+<p id="error" style="color:red; display:none;">Clave incorrecta</p>
+</div>
+</div>
+<header>
+<h1>OSINT MATÍAS</h1>
+<p>Repositorio maestro de fuentes OSINT 🇪🇨 + 🌐</p>
+</header>
+<div class="search-box">
+<input id="searchInput" onkeyup="filterLinks()" placeholder="Buscar enlace..." type="text"/>
+</div>
+<main>
+<section class="category"><h2>Archivos y Metadatos</h2><ul>
+<li><a href="https://exiftool.org/" rel="noopener" target="_blank">ExifTool</a></li>
+<li><a href="https://www.filext.com/" rel="noopener" target="_blank">Filext - File analyser</a></li>
+<li><a href="https://www.elevenpaths.com/labstools/foca" rel="noopener" target="_blank">FOCA Online</a></li>
+<li><a href="https://www.metadata2go.com/" rel="noopener" target="_blank">Metadata2Go</a></li>
+</ul></section>
+<section class="category"><h2>Brechas de Datos y Credenciales</h2><ul>
+<li><a href="https://breachforums.is/" rel="noopener" target="_blank">BreachForums Archive</a></li>
+<li><a href="https://ghostproject.fr/" rel="noopener" target="_blank">GhostProject</a></li>
+<li><a href="https://leakpeek.com/" rel="noopener" target="_blank">LeakPeek</a></li>
+</ul></section>
+<section class="category"><h2>Búsqueda de Usuarios y Perfilación</h2><ul>
+<li><a href="https://instantusername.com/" rel="noopener" target="_blank">Instant Username Search</a></li>
+<li><a href="https://github.com/sherlock-project/sherlock" rel="noopener" target="_blank">Sherlock Project</a></li>
+<li><a href="https://skiptraces.com/username-checker" rel="noopener" target="_blank">SkipTraces - Username Checker</a></li>
+</ul></section>
+<section class="category"><h2>Datos Abiertos Ecuador</h2><ul>
+<li><a href="https://geoportal.quito.gob.ec/" rel="noopener" target="_blank">GAD Quito Geoportal</a></li>
+<li><a href="https://datosabiertos.gob.ec/" rel="noopener" target="_blank">Portal Datos Abiertos Ecuador</a></li>
+<li><a href="https://srienlinea.sri.gob.ec/sri-en-linea/consultaRuc" rel="noopener" target="_blank">SRI Consulta RUC</a></li>
+<li><a href="https://appscvs.supercias.gob.ec/consulta/portal_consolidado/" rel="noopener" target="_blank">SuperCias Consulta Compañías</a></li>
+</ul></section>
+<section class="category"><h2>Finanzas y Servicios Públicos</h2><ul>
+<li><a href="https://geoportal.cnelep.gob.ec/cnel/" rel="noopener" target="_blank">Geoportal CNEL</a></li>
+<li><a href="https://servicios.axiscloud.ec/AutoServicio/inicio.jsp?ps_empresa=16" rel="noopener" target="_blank">Servicios AxisCloud</a></li>
+<li><a href="https://srienlinea.sri.gob.ec/sri-en-linea/SriVehiculosWeb/ConsultaValoresPagarVehiculo/Consultas/consultaRubros/" rel="noopener" target="_blank">SRI Vehículos</a></li>
+</ul></section>
+<section class="category"><h2>Geointeligencia y Mapas</h2><ul>
+<li><a href="https://www.mapillary.com/" rel="noopener" target="_blank">Mapillary</a></li>
+<li><a href="https://overpass-turbo.eu/" rel="noopener" target="_blank">Overpass Turbo (OSM)</a></li>
+<li><a href="https://apps.sentinel-hub.com/sentinel-playground/" rel="noopener" target="_blank">Sentinel Playground</a></li>
+<li><a href="https://www.suncalc.org/" rel="noopener" target="_blank">SunCalc</a></li>
+</ul></section>
+<section class="category"><h2>Geolocalización y Cámaras Públicas</h2><ul>
+<li><a href="https://www.ecu911.gob.ec/consulta-de-vias/" rel="noopener" target="_blank">Consulta de Vías ECU911</a></li>
+<li><a href="https://www.google.com/maps" rel="noopener" target="_blank">Google Maps</a></li>
+<li><a href="https://www.sigtierras.gob.ec/" rel="noopener" target="_blank">SIGTIERRAS</a></li>
+</ul></section>
+<section class="category"><h2>Herramientas Automáticas OSINT</h2><ul>
+<li><a href="https://github.com/mxrch/GHunt" rel="noopener" target="_blank">Ghunt</a></li>
+<li><a href="https://intelx.io/" rel="noopener" target="_blank">IntelligenceX</a></li>
+<li><a href="https://www.maltego.com/downloads/" rel="noopener" target="_blank">Maltego CE</a></li>
+<li><a href="https://tools.osintcombine.com/" rel="noopener" target="_blank">OSINTCombine Tools</a></li>
+<li><a href="https://github.com/lanmaster53/recon-ng" rel="noopener" target="_blank">Recon-ng</a></li>
+<li><a href="https://www.spiderfoot.net/" rel="noopener" target="_blank">SpiderFoot</a></li>
+<li><a href="https://github.com/laramies/theHarvester" rel="noopener" target="_blank">theHarvester</a></li>
+</ul></section>
+<section class="category"><h2>Herramientas Avanzadas (OSINT Global)</h2><ul>
+<li><a href="https://fotoforensics.com/" rel="noopener" target="_blank">FotoForensics</a></li>
+<li><a href="https://hunter.io/" rel="noopener" target="_blank">Hunter.io</a></li>
+<li></li>
+<li><a href="https://www.shodan.io/" rel="noopener" target="_blank">Shodan</a></li>
+<li><a href="https://archive.org/web/" rel="noopener" target="_blank">Wayback Machine</a></li>
+<li><a href="https://whois.domaintools.com/" rel="noopener" target="_blank">Whois Lookup</a></li>
+</ul></section>
+<section class="category"><h2>IMEI y Telecomunicaciones</h2><ul>
+<li><a href="https://tucelularlegal.arcotel.gob.ec/tucelularlegal/consulta_Imeis.aspx" rel="noopener" target="_blank">Consulta IMEI - Arcotel</a></li>
+</ul></section>
+<section class="category"><h2>Internacional</h2><ul>
+<li><a href="https://antecedentes.policia.gov.co:7005/WebJudicial/index.xhtml" rel="noopener" target="_blank">Antecedentes Colombia</a></li>
+<li><a href="https://censoesequibo.saime.gob.ve/index.php?r=dregistro/dregistro/cedula" rel="noopener" target="_blank">Antecedentes Venezuela</a></li>
+</ul></section>
+<section class="category"><h2>Internet Archives y Análisis Web</h2><ul>
+<li><a href="https://builtwith.com/" rel="noopener" target="_blank">BuiltWith</a></li>
+<li><a href="https://www.criminalip.io/" rel="noopener" target="_blank">Criminal IP</a></li>
+<li><a href="https://urlscan.io/" rel="noopener" target="_blank">URLscan.io</a></li>
+<li><a href="https://web.archive.org/" rel="noopener" target="_blank">Wayback Machine</a></li>
+</ul></section>
+<section class="category"><h2>Investigación Blockchain</h2><ul>
+<li><a href="https://etherscan.io/" rel="noopener" target="_blank">EtherScan</a></li>
+<li><a href="https://explorer.solana.com/" rel="noopener" target="_blank">Solana Explorer</a></li>
+<li><a href="https://xmrchain.net/" rel="noopener" target="_blank">XMRChain (Monero)</a></li>
+</ul></section>
+<section class="category"><h2>Justicia y Fiscalía</h2><ul>
+<li><a href="https://appsj.funcionjudicial.gob.ec/documentosExtraviados/publico/formulario.jsf" rel="noopener" target="_blank">Consulta de Documentos Extraviados</a></li>
+<li><a href="https://www.fiscalia.gob.ec/consulta-de-noticias-del-delito/" rel="noopener" target="_blank">Consulta de Noticias del Delito</a></li>
+<li><a href="https://www.fiscalia.gob.ec/" rel="noopener" target="_blank">Fiscalía General del Estado</a></li>
+</ul></section>
+<section class="category"><h2>Legales y Laborales</h2><ul>
+<li><a href="http://calculadoraliquidaciones.trabajo.gob.ec/CalculadoraLiquidacion/" rel="noopener" target="_blank">Calculadora Laboral Ecuador</a></li>
+<li><a href="https://www.terminosyplazos.com/" rel="noopener" target="_blank">Calculadora Términos y Plazos</a></li>
+</ul></section>
+<section class="category"><h2>Números Telefónicos y Contactos</h2><ul>
+<li><a href="https://getcontact.com/" rel="noopener" target="_blank">GetContact</a></li>
+<li><a href="https://www.truecaller.com/" rel="noopener" target="_blank">TrueCaller</a></li>
+</ul></section>
+<section class="category"><h2>Personas e Identidad</h2><ul>
+<li><a href="https://www.102.ec/" rel="noopener" target="_blank">102 Directorio Telefónico</a></li>
+<li><a href="https://www.funcionjudicial.gob.ec/" rel="noopener" target="_blank">Consejo de la Judicatura</a></li>
+<li><a href="https://lugarvotacion.cne.gob.ec/" rel="noopener" target="_blank">Consulta lugar de votación</a></li>
+<li><a href="https://www.registrocivil.gob.ec/" rel="noopener" target="_blank">Registro Civil</a></li>
+</ul></section>
+<section class="category"><h2>Salud, Educación y Universidades</h2><ul>
+<li><a href="https://coberturasalud.msp.gob.ec/" rel="noopener" target="_blank">Cobertura Salud MSP</a></li>
+<li><a href="https://www.senescyt.gob.ec/consulta-titulos-web" rel="noopener" target="_blank">SENESCYT</a></li>
+</ul></section>
+<section class="category"><h2>Telefonía y Mensajería</h2><ul>
+<li><a href="https://onlinesim.io/" rel="noopener" target="_blank">Online SIM</a></li>
+<li><a href="https://www.opencellid.org/" rel="noopener" target="_blank">OpenCellID</a></li>
+<li><a href="https://smsreceivefree.com/" rel="noopener" target="_blank">SMSReceiveFree</a></li>
+</ul></section>
+<section class="category"><h2>Transparencia y Gobierno Internacional</h2><ul>
+<li><a href="https://data.europa.eu/" rel="noopener" target="_blank">EU Open Data Portal</a></li>
+<li><a href="https://www.sec.gov/edgar/search/" rel="noopener" target="_blank">SEC EDGAR</a></li>
+<li><a href="https://find-and-update.company-information.service.gov.uk/" rel="noopener" target="_blank">UK Companies House</a></li>
+</ul></section>
+<section class="category"><h2>Vehículos y Tránsito</h2><ul>
+<li><a href="https://www.ant.gob.ec/" rel="noopener" target="_blank">ANT</a></li>
+<li><a href="https://ant.com.ec/licencias/consultar" rel="noopener" target="_blank">Consulta Licencia ANT</a></li>
+<li><a href="https://ant.com.ec/matriculas/consultar-valor-matricula" rel="noopener" target="_blank">Consulta Matrícula ANT</a></li>
+<li><a href="https://consultasecuador.com/en-linea/transito/consultar-propietario-vehiculo" rel="noopener" target="_blank">Consulta Propietario Vehículo</a></li>
+<li><a href="https://www.autodatoec.com/" rel="noopener" target="_blank">Datos Vehículo (AutoDatoEC)</a></li>
+</ul></section>
+<section class="category"><h2>Monitorización de Cambios Web</h2><ul>
+<li><a href="https://distill.io/" rel="noopener" target="_blank">Distill.io</a></li>
+<li><a href="https://visualping.io/" rel="noopener" target="_blank">VisualPing</a></li>
+</ul></section>
+<section class="category"><h2>DNS y Red</h2><ul>
+<li><a href="https://securitytrails.com/" rel="noopener" target="_blank">SecurityTrails</a></li>
+<li><a href="https://bgpview.io/" rel="noopener" target="_blank">BGPView</a></li>
+<li><a href="https://www.greynoise.io/" rel="noopener" target="_blank">GreyNoise</a></li>
+<li><a href="https://netlas.io/" rel="noopener" target="_blank">Netlas</a></li>
+<li><a href="https://leakix.net/" rel="noopener" target="_blank">LeakIX</a></li>
+</ul></section>
+<section class="category"><h2>Dispositivos IoT y Superficie de Exposición</h2><ul>
+<li><a href="https://www.zoomeye.org/" rel="noopener" target="_blank">ZoomEye</a></li>
+<li><a href="https://www.onyphe.io/" rel="noopener" target="_blank">Onyphe</a></li>
+</ul></section>
+<section class="category"><h2>Blockchain e Investigación Cripto</h2><ul>
+<li><a href="https://explorer.bitquery.io/" rel="noopener" target="_blank">Bitquery Explorer</a></li>
+</ul></section>
+<section class="category"><h2>Criminal &amp; Judicial (Global)</h2><ul>
+<li><a href="https://www.arrests.org/" rel="noopener" target="_blank">Arrests.org</a></li>
+<li><a href="https://www.courtlistener.com/" rel="noopener" target="_blank">CourtListener</a></li>
+</ul></section>
+<section class="category"><h2>Datasets Abiertos</h2><ul>
+<li><a href="https://datasetsearch.research.google.com/" rel="noopener" target="_blank">Google Dataset Search</a></li>
+<li><a href="https://www.data.gov/" rel="noopener" target="_blank">data.gov</a></li>
+</ul></section>
+<section class="category"><h2>Investigación y Noticias OSINT</h2><ul>
+<li><a href="https://www.bellingcat.com/" rel="noopener" target="_blank">Bellingcat</a></li>
+<li><a href="https://openfacto.fr/" rel="noopener" target="_blank">OpenFacto</a></li>
+</ul></section>
+<section class="category"><h2>Empresas &amp; Financieros</h2><ul>
+<li><a href="https://opencorporates.com/" rel="noopener" target="_blank">OpenCorporates</a></li>
+<li><a href="https://www.crunchbase.com/" rel="noopener" target="_blank">Crunchbase</a></li>
+</ul></section>
+<section class="category"><h2>Satélite &amp; Earth Observation</h2><ul>
+<li><a href="https://worldview.earthdata.nasa.gov/" rel="noopener" target="_blank">NASA Worldview</a></li>
+</ul></section>
+<section class="category"><h2>Verificación Multimedia</h2><ul>
+<li><a href="https://www.invid-project.eu/tools-and-services/invid-weverify-verification-plugin/" rel="noopener" target="_blank">InVid-WeVerify Plugin</a></li>
+</ul></section>
+</main>
+<footer>
+  Desarrollado por CBOS. M. P. — Versión Ultimate © 2025
+</footer>
+<script src="script.js"></script>
+</body>
+</html>
